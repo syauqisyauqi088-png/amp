@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amplifier Custom Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Custom Amplifier Builder</h1>
+            <p>Konfigurasikan spesifikasi amplifier sesuai kebutuhan Anda</p>
+        </header>
+
+        <div class="main-layout">
+            <section class="form-section">
+                <div class="card">
+                    <h2>Pilih Spesifikasi</h2>
+                    
+                    <div class="form-group">
+                        <label>Class Amplifier</label>
+                        <select id="ampClass">
+                            <option value="">-- Pilih Class --</option>
+                            <option value="class-d">Class D</option>
+                            <option value="class-ab">Class AB</option>
+                            <option value="class-h">Class H</option>
+                            <option value="class-td">Class TD</option>
+                        </select>
+                    </div>
+
+                    <div id="subOptionContainer" class="form-group hidden">
+                        <label id="subOptionLabel">Tipe Module</label>
+                        <select id="ampModule"></select>
+                    </div>
+
+                    <div id="trFinalContainer" class="form-group hidden">
+                        <label>Jumlah Transistor Final (Set)</label>
+                        <input type="number" id="trFinal" min="1" value="1" placeholder="Contoh: 5">
+                    </div>
+
+                    <div class="form-group border-top">
+                        <label>Pilih SMPS</label>
+                        <select id="smpsOption">
+                            <option value="0">-- Tanpa SMPS --</option>
+                            <option value="650000">HB 2KVA OCP</option>
+                            <option value="850000">HB 3KVA OCP</option>
+                            <option value="1200000">FB REG 4KVA</option>
+                            <option value="1500000">FB 5 KVA REG OCP</option>
+                            <option value="1850000">FB 6KVA (UVP, OVP, DCP, OCP)</option>
+                            <option value="2500000">FB 10KVA (UVP, OVP, DCP, OCP)</option>
+                            <option value="750000">HB 2.5KVA Class H</option>
+                            <option value="950000">HB 3.5KVA Class H</option>
+                            <option value="1400000">FB 5KVA Class H</option>
+                            <option value="2100000">FB 8KVA Class H</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card info-card">
+                    <h3>Keterangan Teknis:</h3>
+                    <ul>
+                        <li><strong>SMPS HB:</strong> Setengah fitur (OCP, Regulasi).</li>
+                        <li><strong>SMPS FB:</strong> Full fitur (OVP only PFC, OCP, DCP).</li>
+                        <li><strong>Class D FB:</strong> Semua tipe Full Fitur.</li>
+                        <li><strong>Class D HB:</strong> Full fitur hanya pada: Ucd Superlite, D2K5, D2K Tiger, D2K Biasa.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <aside class="summary-section">
+                <div class="card sticky">
+                    <h2>Rincian Biaya</h2>
+                    <div class="summary-item">
+                        <span>Module:</span>
+                        <span id="resAmp">Rp 0</span>
+                    </div>
+                    <div id="resTrRow" class="summary-item hidden">
+                        <span>TR Final:</span>
+                        <span id="resTrFinal">Rp 0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>SMPS:</span>
+                        <span id="resSmps">Rp 0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Box Ampli:</span>
+                        <span>Rp 350.000</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Ongkir & Paking:</span>
+                        <span>Rp 150.000</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Total Estimasi:</span>
+                        <span id="totalPrice">Rp 500.000</span>
+                    </div>
+                    <button id="btnOrder" class="btn-primary">Pesan Sekarang</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
